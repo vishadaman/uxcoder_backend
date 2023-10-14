@@ -1,5 +1,10 @@
 module.exports = ({ env }) => ({
     // ...
+    'user-spermissions': {
+      config: {
+      jwtSecret: env(`JWT_SECRET`),
+      },
+      },
     upload: {
       config: {
         provider: 'cloudinary',
@@ -13,6 +18,8 @@ module.exports = ({ env }) => ({
           delete: {},
         },
       },
+
     },
+    
     // ...
   });
