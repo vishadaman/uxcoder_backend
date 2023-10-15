@@ -374,11 +374,30 @@ export interface ApiProjectProject extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    Title: Attribute.String;
-    thumnail: Attribute.Media;
-    gallery: Attribute.Media;
-    video: Attribute.Media;
-    details: Attribute.RichText;
+    Title: Attribute.String &
+      Attribute.Required &
+      Attribute.Unique &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    Category: Attribute.Enumeration<['Design', 'Website', 'Testing']> &
+      Attribute.Required;
+    isFeatured: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    Thumbnail: Attribute.Media & Attribute.Required;
+    FeaturedImage: Attribute.Media;
+    Content: Attribute.RichText;
+    Summary: Attribute.Text &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    slug: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
