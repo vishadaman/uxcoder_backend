@@ -4,16 +4,73 @@
   "info": {
     "singularName": "project",
     "pluralName": "projects",
+<<<<<<< HEAD
     "displayName": "Project"
+=======
+    "displayName": "Project",
+    "description": ""
+>>>>>>> afc4d7d90e413cf2de4520c79461afb7e4c3d6e8
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
+<<<<<<< HEAD
     "Project_Title": {
       "type": "string",
       "required": true
+=======
+    "Title": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "maxLength": 255
+    },
+    "Category": {
+      "type": "enumeration",
+      "enum": [
+        "Design",
+        "Website",
+        "Testing"
+      ],
+      "required": true
+    },
+    "isFeatured": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "Thumbnail": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "FeaturedImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "videos"
+      ]
+    },
+    "Content": {
+      "type": "richtext"
+    },
+    "Summary": {
+      "type": "text",
+      "required": true,
+      "maxLength": 255
+    },
+    "slug": {
+      "type": "string",
+      "required": true,
+      "maxLength": 255
+>>>>>>> afc4d7d90e413cf2de4520c79461afb7e4c3d6e8
     }
   }
 }

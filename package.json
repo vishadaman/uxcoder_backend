@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "uxcoder-strapi-backend",
+=======
+  "name": "strapi-prod",
+>>>>>>> afc4d7d90e413cf2de4520c79461afb7e4c3d6e8
   "private": true,
   "version": "0.1.0",
   "description": "A Strapi application",
@@ -10,6 +14,7 @@
     "strapi": "strapi"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@strapi/plugin-cloud": "4.20.0",
     "@strapi/plugin-i18n": "4.20.0",
     "@strapi/plugin-users-permissions": "4.20.0",
@@ -20,15 +25,29 @@
     "react-dom": "^18.0.0",
     "react-router-dom": "5.3.4",
     "styled-components": "5.3.3"
+=======
+    "@strapi/plugin-i18n": "4.14.4",
+    "@strapi/plugin-users-permissions": "4.14.4",
+    "@strapi/provider-upload-cloudinary": "^4.14.4",
+    "@strapi/strapi": "4.14.4",
+    "pg": "8.8.0"
+>>>>>>> afc4d7d90e413cf2de4520c79461afb7e4c3d6e8
   },
   "author": {
     "name": "A Strapi developer"
   },
   "strapi": {
+<<<<<<< HEAD
     "uuid": "4c3d2685-39a2-4438-acce-b0a00cab9dfc"
   },
   "engines": {
     "node": ">=18.0.0 <=20.x.x",
+=======
+    "uuid": "c0cb5cec-1ff5-4d11-94a6-c95efccff387"
+  },
+  "engines": {
+    "node": ">=16.0.0 <=20.x.x",
+>>>>>>> afc4d7d90e413cf2de4520c79461afb7e4c3d6e8
     "npm": ">=6.0.0"
   },
   "license": "MIT"

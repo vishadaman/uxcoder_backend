@@ -1,6 +1,7 @@
 const path = require('path');
 
 module.exports = ({ env }) => {
+<<<<<<< HEAD
   const client = env('DATABASE_CLIENT', 'sqlite');
 
   const connections = {
@@ -56,6 +57,20 @@ module.exports = ({ env }) => {
         user: env('DATABASE_USERNAME', 'strapi'),
         password: env('DATABASE_PASSWORD', 'strapi'),
         ssl: env.bool('DATABASE_SSL', false) && {
+=======
+  const client = env('DATABASE_CLIENT', 'postgres');
+
+  const connections = {
+    postgres: {
+      connection: {
+        connectionString: env('DATABASE_URL'),
+        host: env('DATABASE_HOST'),
+        port: env.int('DATABASE_PORT'),
+        database: env('DATABASE_NAME'),
+        user: env('DATABASE_USERNAME'),
+        password: env('DATABASE_PASSWORD'),
+        ssl: env.bool('DATABASE_SSL', true) && {
+>>>>>>> afc4d7d90e413cf2de4520c79461afb7e4c3d6e8
           key: env('DATABASE_SSL_KEY', undefined),
           cert: env('DATABASE_SSL_CERT', undefined),
           ca: env('DATABASE_SSL_CA', undefined),
@@ -70,6 +85,7 @@ module.exports = ({ env }) => {
       },
       pool: { min: env.int('DATABASE_POOL_MIN', 2), max: env.int('DATABASE_POOL_MAX', 10) },
     },
+<<<<<<< HEAD
     sqlite: {
       connection: {
         filename: path.join(
@@ -80,6 +96,8 @@ module.exports = ({ env }) => {
       },
       useNullAsDefault: true,
     },
+=======
+>>>>>>> afc4d7d90e413cf2de4520c79461afb7e4c3d6e8
   };
 
   return {

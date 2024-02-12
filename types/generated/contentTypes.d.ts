@@ -368,12 +368,43 @@ export interface ApiProjectProject extends Schema.CollectionType {
     singularName: 'project';
     pluralName: 'projects';
     displayName: 'Project';
+<<<<<<< HEAD
+=======
+    description: '';
+>>>>>>> afc4d7d90e413cf2de4520c79461afb7e4c3d6e8
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
+<<<<<<< HEAD
     Project_Title: Attribute.String & Attribute.Required;
+=======
+    Title: Attribute.String &
+      Attribute.Required &
+      Attribute.Unique &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    Category: Attribute.Enumeration<['Design', 'Website', 'Testing']> &
+      Attribute.Required;
+    isFeatured: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    Thumbnail: Attribute.Media & Attribute.Required;
+    FeaturedImage: Attribute.Media;
+    Content: Attribute.RichText;
+    Summary: Attribute.Text &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    slug: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+>>>>>>> afc4d7d90e413cf2de4520c79461afb7e4c3d6e8
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -433,12 +464,18 @@ export interface PluginUploadFile extends Schema.CollectionType {
     folderPath: Attribute.String &
       Attribute.Required &
       Attribute.Private &
+<<<<<<< HEAD
       Attribute.SetMinMax<
         {
           min: 1;
         },
         number
       >;
+=======
+      Attribute.SetMinMax<{
+        min: 1;
+      }>;
+>>>>>>> afc4d7d90e413cf2de4520c79461afb7e4c3d6e8
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -474,12 +511,18 @@ export interface PluginUploadFolder extends Schema.CollectionType {
   attributes: {
     name: Attribute.String &
       Attribute.Required &
+<<<<<<< HEAD
       Attribute.SetMinMax<
         {
           min: 1;
         },
         number
       >;
+=======
+      Attribute.SetMinMax<{
+        min: 1;
+      }>;
+>>>>>>> afc4d7d90e413cf2de4520c79461afb7e4c3d6e8
     pathId: Attribute.Integer & Attribute.Required & Attribute.Unique;
     parent: Attribute.Relation<
       'plugin::upload.folder',
@@ -498,12 +541,18 @@ export interface PluginUploadFolder extends Schema.CollectionType {
     >;
     path: Attribute.String &
       Attribute.Required &
+<<<<<<< HEAD
       Attribute.SetMinMax<
         {
           min: 1;
         },
         number
       >;
+=======
+      Attribute.SetMinMax<{
+        min: 1;
+      }>;
+>>>>>>> afc4d7d90e413cf2de4520c79461afb7e4c3d6e8
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -521,12 +570,23 @@ export interface PluginUploadFolder extends Schema.CollectionType {
   };
 }
 
+<<<<<<< HEAD
 export interface PluginContentReleasesRelease extends Schema.CollectionType {
   collectionName: 'strapi_releases';
   info: {
     singularName: 'release';
     pluralName: 'releases';
     displayName: 'Release';
+=======
+export interface PluginI18NLocale extends Schema.CollectionType {
+  collectionName: 'i18n_locale';
+  info: {
+    singularName: 'locale';
+    pluralName: 'locales';
+    collectionName: 'locales';
+    displayName: 'Locale';
+    description: '';
+>>>>>>> afc4d7d90e413cf2de4520c79461afb7e4c3d6e8
   };
   options: {
     draftAndPublish: false;
@@ -540,6 +600,7 @@ export interface PluginContentReleasesRelease extends Schema.CollectionType {
     };
   };
   attributes: {
+<<<<<<< HEAD
     name: Attribute.String & Attribute.Required;
     releasedAt: Attribute.DateTime;
     actions: Attribute.Relation<
@@ -551,11 +612,24 @@ export interface PluginContentReleasesRelease extends Schema.CollectionType {
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
       'plugin::content-releases.release',
+=======
+    name: Attribute.String &
+      Attribute.SetMinMax<{
+        min: 1;
+        max: 50;
+      }>;
+    code: Attribute.String & Attribute.Unique;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::i18n.locale',
+>>>>>>> afc4d7d90e413cf2de4520c79461afb7e4c3d6e8
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
+<<<<<<< HEAD
       'plugin::content-releases.release',
       'oneToOne',
       'admin::user'
@@ -606,6 +680,9 @@ export interface PluginContentReleasesReleaseAction
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'plugin::content-releases.release-action',
+=======
+      'plugin::i18n.locale',
+>>>>>>> afc4d7d90e413cf2de4520c79461afb7e4c3d6e8
       'oneToOne',
       'admin::user'
     > &
@@ -764,6 +841,7 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+<<<<<<< HEAD
 export interface PluginI18NLocale extends Schema.CollectionType {
   collectionName: 'i18n_locale';
   info: {
@@ -811,6 +889,8 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
+=======
+>>>>>>> afc4d7d90e413cf2de4520c79461afb7e4c3d6e8
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -824,12 +904,19 @@ declare module '@strapi/types' {
       'api::project.project': ApiProjectProject;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
+<<<<<<< HEAD
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
+=======
+      'plugin::i18n.locale': PluginI18NLocale;
+      'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
+      'plugin::users-permissions.role': PluginUsersPermissionsRole;
+      'plugin::users-permissions.user': PluginUsersPermissionsUser;
+>>>>>>> afc4d7d90e413cf2de4520c79461afb7e4c3d6e8
     }
   }
 }
